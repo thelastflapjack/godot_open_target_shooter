@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/run_end.ogg-23826ec1f35a351a8e6f20a6579aa39f.oggstr"
+
+[deps]
+
+source_file="res://raw_assets/sfx/misc/run_end.ogg"
+dest_files=[ "res://.import/run_end.ogg-23826ec1f35a351a8e6f20a6579aa39f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

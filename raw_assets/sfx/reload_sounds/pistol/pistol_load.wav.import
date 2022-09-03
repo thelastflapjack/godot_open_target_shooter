@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pistol_load.wav-88c2b93fcb74f9940845b825a509fe50.sample"
+
+[deps]
+
+source_file="res://raw_assets/sfx/reload_sounds/pistol/pistol_load.wav"
+dest_files=[ "res://.import/pistol_load.wav-88c2b93fcb74f9940845b825a509fe50.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
