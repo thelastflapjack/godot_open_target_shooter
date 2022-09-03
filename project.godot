@@ -1,0 +1,282 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Badge",
+"language": "GDScript",
+"path": "res://src/badges/badge.gd"
+}, {
+"base": "Node",
+"class": "BadgeTracker",
+"language": "GDScript",
+"path": "res://src/level_components/level_sub_managers/badge_tracker.gd"
+}, {
+"base": "KinematicBody",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://src/weapons/bullets/bullet.gd"
+}, {
+"base": "Node",
+"class": "BulletManager",
+"language": "GDScript",
+"path": "res://src/level_components/level_sub_managers/bullet_manager.gd"
+}, {
+"base": "Area",
+"class": "CameraTraumaCauser",
+"language": "GDScript",
+"path": "res://src/camera_systems/camera_shake/camera_trauma_causer.gd"
+}, {
+"base": "Area",
+"class": "CameraTraumaDetector",
+"language": "GDScript",
+"path": "res://src/camera_systems/camera_shake/camera_trauma_detector.gd"
+}, {
+"base": "Reference",
+"class": "GenUtils",
+"language": "GDScript",
+"path": "res://src/global_utilities/general_utilities.gd"
+}, {
+"base": "Button",
+"class": "LevelButton",
+"language": "GDScript",
+"path": "res://src/ui/main_menu/level_select/level_button/level_button.gd"
+}, {
+"base": "Resource",
+"class": "LevelCamSysStatePosiionData",
+"language": "GDScript",
+"path": "res://src/camera_systems/level_camera/state_machine/state_position_data_OLD/state_position_data.gd"
+}, {
+"base": "Spatial",
+"class": "LevelCameraSystem",
+"language": "GDScript",
+"path": "res://src/camera_systems/level_camera/level_cam_sys.gd"
+}, {
+"base": "State",
+"class": "LevelCameraSystemState",
+"language": "GDScript",
+"path": "res://src/camera_systems/level_camera/state_machine/level_cam_sys_state.gd"
+}, {
+"base": "Spatial",
+"class": "LevelManager",
+"language": "GDScript",
+"path": "res://src/level_components/level.gd"
+}, {
+"base": "CanvasLayer",
+"class": "LevelUI",
+"language": "GDScript",
+"path": "res://src/ui/level_ui/level_ui.gd"
+}, {
+"base": "Control",
+"class": "MultiPageUIMagager",
+"language": "GDScript",
+"path": "res://src/ui/multi_page_ui/manager.gd"
+}, {
+"base": "Control",
+"class": "MultiPageUIPage",
+"language": "GDScript",
+"path": "res://src/ui/multi_page_ui/page.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/actor/player/player.gd"
+}, {
+"base": "Control",
+"class": "PlayerHUD",
+"language": "GDScript",
+"path": "res://src/ui/player_hud/player_hud.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://src/actor/player/state_machine/player_state.gd"
+}, {
+"base": "Spatial",
+"class": "PopupTarget",
+"language": "GDScript",
+"path": "res://src/level_components/targets/popup_target/popup_target.gd"
+}, {
+"base": "VBoxContainer",
+"class": "RunSummaryBadgeIcon",
+"language": "GDScript",
+"path": "res://src/ui/run_summary_page/badge_icon/run_summary_badge_icon.gd"
+}, {
+"base": "Reference",
+"class": "SaveLoad",
+"language": "GDScript",
+"path": "res://src/global_utilities/saveload.gd"
+}, {
+"base": "ClippedCamera",
+"class": "ShakeableClippedCamera",
+"language": "GDScript",
+"path": "res://src/camera_systems/camera_shake/shakeable_clipped_camera.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/generic/state_machine/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/generic/state_machine/state_machine.gd"
+}, {
+"base": "StaticBody",
+"class": "Target",
+"language": "GDScript",
+"path": "res://src/level_components/targets/target.gd"
+}, {
+"base": "Node",
+"class": "TargetManager",
+"language": "GDScript",
+"path": "res://src/level_components/level_sub_managers/target_manager.gd"
+}, {
+"base": "Spatial",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://src/weapons/weapon.gd"
+} ]
+_global_script_class_icons={
+"Badge": "",
+"BadgeTracker": "",
+"Bullet": "",
+"BulletManager": "",
+"CameraTraumaCauser": "",
+"CameraTraumaDetector": "",
+"GenUtils": "",
+"LevelButton": "",
+"LevelCamSysStatePosiionData": "",
+"LevelCameraSystem": "",
+"LevelCameraSystemState": "",
+"LevelManager": "",
+"LevelUI": "",
+"MultiPageUIMagager": "",
+"MultiPageUIPage": "",
+"Player": "",
+"PlayerHUD": "",
+"PlayerState": "",
+"PopupTarget": "",
+"RunSummaryBadgeIcon": "",
+"SaveLoad": "",
+"ShakeableClippedCamera": "",
+"State": "",
+"StateMachine": "",
+"Target": "",
+"TargetManager": "",
+"Weapon": ""
+}
+
+[application]
+
+config/name="open_target_shooter"
+run/main_scene="res://src/main/main.tscn"
+
+[audio]
+
+default_bus_layout="res://audio_bus_layout.tres"
+
+[autoload]
+
+UserPreferences="*res://src/autoloads/user_preferences.gd"
+Groups="*res://src/autoloads/groups.gd"
+
+[display]
+
+window/size/width=1980
+window/size/height=1080
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[input]
+
+ui_cancel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+player_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+ ]
+}
+player_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+ ]
+}
+player_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+player_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+player_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+player_roll={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+player_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+player_run={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+player_aim={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+player_reload={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+player_next_weapon={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="Environment"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Target"
+3d_physics/layer_4="Bullet"
+3d_physics/layer_5="OneWayBarrier"
+3d_physics/layer_6="CamTraumaCauser"
+3d_physics/layer_7="CamTraumaDetector"
+
+[rendering]
+
+quality/filters/msaa=2
+environment/default_environment="res://world_env.tres"
