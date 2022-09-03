@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/camera_systems/camera_shake/shakeable_clipped_camera.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 16.0
+persistence = 0.6
+
+[node name="ShakeableClippedCamera" type="ClippedCamera"]
+script = ExtResource( 1 )
+_noise = SubResource( 1 )

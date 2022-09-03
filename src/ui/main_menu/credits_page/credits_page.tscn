@@ -1,0 +1,202 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/menu.theme" type="Theme" id=1]
+[ext_resource path="res://raw_assets/sfx/ui/switch_004.ogg" type="AudioStream" id=2]
+[ext_resource path="res://src/ui/main_menu/credits_page/credits_page.gd" type="Script" id=3]
+
+[node name="CreditsPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+mix_target = 2
+bus = "UISounds"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.020202
+anchor_top = 0.037037
+anchor_right = 0.613131
+anchor_bottom = 0.962963
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1173.0
+margin_bottom = 76.0
+size_flags_vertical = 0
+
+[node name="BtnBack" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 76.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 1173.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+theme_type_variation = "Header2"
+text = "Credits"
+align = 2
+
+[node name="PanelContainer" type="Panel" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 1173.0
+margin_bottom = 1000.0
+size_flags_vertical = 3
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+anchor_left = 0.020592
+anchor_top = 0.0175055
+anchor_right = 0.979408
+anchor_bottom = 0.982495
+size_flags_horizontal = 5
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 1124.0
+margin_bottom = 769.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1112.0
+margin_bottom = 1397.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 25
+
+[node name="LabelCredit1" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 1112.0
+margin_bottom = 141.0
+text = "Font: Orbitron
+By: Matt McInerney
+Avaliable at: https://fonts.google.com/specimen/Orbitron
+License: OFL"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 1112.0
+margin_bottom = 307.0
+text = "Interface Sounds
+By: Kenney
+Avaliable at: https://www.kenney.nl/assets/interface-sounds
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 332.0
+margin_right = 1112.0
+margin_bottom = 473.0
+text = "Footstep sound effect
+By: ruberduck
+Avaliable at: https://opengameart.org/content/100-cc0-sfx-2
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 498.0
+margin_right = 1112.0
+margin_bottom = 639.0
+text = "Gunshot sound effect
+By: ShawnyBoy
+Avaliable at: https://freesound.org/people/ShawnyBoy/sounds/166191
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit8" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 664.0
+margin_right = 1112.0
+margin_bottom = 805.0
+text = "Pistol reload sounds
+By: oneshotofficial
+Avaliable at: https://freesound.org/people/oneshotofficial/sounds/616758/
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit9" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 830.0
+margin_right = 1112.0
+margin_bottom = 971.0
+text = "Rifle reload sounds
+By: oneshotofficial
+Avaliable at: https://freesound.org/people/oneshotofficial/sounds/616757/
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit10" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 996.0
+margin_right = 1112.0
+margin_bottom = 1137.0
+text = "Enemy target hit sound
+By: cupido-1
+Avaliable at: https://freesound.org/people/cupido-1/sounds/560724/
+License: CC0 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit11" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 1162.0
+margin_right = 1112.0
+margin_bottom = 1303.0
+text = "Friendly target hit sound
+By: RICHERlandTV
+Avaliable at: https://freesound.org/people/RICHERlandTV/sounds/216090/
+License: CC BY 3.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit13" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 1328.0
+margin_right = 1112.0
+margin_bottom = 1397.0
+text = "Everything else
+By: thelastflapjack"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 789.0
+margin_right = 1124.0
+margin_bottom = 793.0
+
+[node name="MadeWithLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 813.0
+margin_right = 1124.0
+margin_bottom = 882.0
+text = "Made With:
+Godot, Blender, Inkscape, Krita and Audacity"
+align = 1
+autowrap = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnBack" to="." method="_on_btn_back_pressed"]

@@ -1,0 +1,277 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/ui/in_game_overlay.theme" type="Theme" id=1]
+[ext_resource path="res://src/ui/level_ui/level_ui.gd" type="Script" id=2]
+[ext_resource path="res://raw_assets/images_icons/badges/placeholder.png" type="Texture" id=3]
+[ext_resource path="res://raw_assets/sfx/misc/badge_notification.wav" type="AudioStream" id=4]
+
+[sub_resource type="Gradient" id=8]
+interpolation_mode = 1
+offsets = PoolRealArray( 0, 0.175573, 0.385496, 0.60687, 0.80916 )
+colors = PoolColorArray( 0.933105, 0.87925, 0.284306, 1, 0.94873, 0.609796, 0.35948, 1, 0.532137, 0.952637, 0.539939, 1, 0.880703, 0.540199, 0.987793, 1, 0.510317, 0.855685, 0.913574, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.814035, 0.817045 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.115909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 1, -1, 0 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 300.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_curve = SubResource( 4 )
+color_initial_ramp = SubResource( 9 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_last_badge"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Content" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+
+[node name="RunStats" type="PanelContainer" parent="Content"]
+anchor_right = 0.17602
+anchor_bottom = 0.15283
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Content/RunStats"]
+margin_left = 19.0
+margin_top = 21.0
+margin_right = 324.0
+margin_bottom = 140.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Content/RunStats/GridContainer"]
+margin_right = 182.0
+margin_bottom = 33.0
+text = "Time:"
+align = 2
+
+[node name="Control" type="Control" parent="Content/RunStats/GridContainer"]
+margin_left = 192.0
+margin_right = 305.0
+margin_bottom = 33.0
+
+[node name="TimeLabel" type="Label" parent="Content/RunStats/GridContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "---.-"
+align = 1
+
+[node name="Label3" type="Label" parent="Content/RunStats/GridContainer"]
+margin_top = 43.0
+margin_right = 182.0
+margin_bottom = 76.0
+text = "Enemy Hits:"
+align = 2
+
+[node name="EnemyLabel" type="Label" parent="Content/RunStats/GridContainer"]
+margin_left = 192.0
+margin_top = 43.0
+margin_right = 305.0
+margin_bottom = 76.0
+text = "00 / 00"
+align = 1
+
+[node name="Label5" type="Label" parent="Content/RunStats/GridContainer"]
+margin_top = 86.0
+margin_right = 182.0
+margin_bottom = 119.0
+text = "Friendly Hits:"
+align = 2
+
+[node name="FriendlyLabel" type="Label" parent="Content/RunStats/GridContainer"]
+margin_left = 192.0
+margin_top = 86.0
+margin_right = 305.0
+margin_bottom = 119.0
+text = "00"
+align = 1
+
+[node name="LevelStats" type="PanelContainer" parent="Content"]
+anchor_left = 0.823469
+anchor_right = 0.99949
+anchor_bottom = 0.100943
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Content/LevelStats"]
+margin_left = 49.0
+margin_top = 15.0
+margin_right = 295.0
+margin_bottom = 91.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Content/LevelStats/GridContainer"]
+margin_right = 146.0
+margin_bottom = 33.0
+text = "Best Time:"
+align = 2
+
+[node name="TimeBestLabel" type="Label" parent="Content/LevelStats/GridContainer"]
+margin_left = 156.0
+margin_right = 246.0
+margin_bottom = 33.0
+text = "---.-"
+align = 1
+
+[node name="Label3" type="Label" parent="Content/LevelStats/GridContainer"]
+margin_top = 43.0
+margin_right = 146.0
+margin_bottom = 76.0
+text = "Par Time:"
+align = 2
+
+[node name="TimeParLabel" type="Label" parent="Content/LevelStats/GridContainer"]
+margin_left = 156.0
+margin_top = 43.0
+margin_right = 246.0
+margin_bottom = 76.0
+text = "000.0"
+align = 1
+
+[node name="LastBadge" type="Panel" parent="Content"]
+anchor_top = 0.941379
+anchor_right = 0.13247
+anchor_bottom = 1.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.42
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="Content/LastBadge"]
+position = Vector2( 40.048, 35.138 )
+emitting = false
+amount = 26
+one_shot = true
+explosiveness = 0.9
+visibility_rect = Rect2( 0, 0, 500, -300 )
+process_material = SubResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/LastBadge"]
+anchor_left = 0.0315315
+anchor_right = 0.968468
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 104, 24 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LastBadgeIcon" type="TextureRect" parent="Content/LastBadge/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LastBadgeTitle" type="Label" parent="Content/LastBadge/HBoxContainer"]
+margin_left = 74.0
+margin_right = 243.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.72
+theme_type_variation = "SubLabel"
+text = "Placeholder"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Content/LastBadge"]
+anims/RESET = SubResource( 6 )
+anims/fade_last_badge = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Content/LastBadge"]
+pause_mode = 2
+stream = ExtResource( 4 )
+mix_target = 2
+bus = "SoundEffects"

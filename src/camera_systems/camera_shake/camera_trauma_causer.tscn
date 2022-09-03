@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/camera_systems/camera_shake/camera_trauma_causer.gd" type="Script" id=1]
+
+[node name="CameraTraumaCauser" type="Area"]
+collision_layer = 32
+collision_mask = 64
+monitoring = false
+script = ExtResource( 1 )

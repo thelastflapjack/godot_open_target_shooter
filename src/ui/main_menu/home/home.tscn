@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/main_menu/home/home.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/menu.theme" type="Theme" id=2]
+[ext_resource path="res://raw_assets/sfx/ui/switch_004.ogg" type="AudioStream" id=3]
+
+[node name="Home" type="Control"]
+anchor_right = 0.999999
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_top = 0.0466667
+anchor_right = 1.0
+anchor_bottom = 0.266667
+margin_bottom = -1.52588e-05
+theme_type_variation = "Header1"
+text = "OPEN TARGET SHOOTER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="TitleLabel"]
+anchor_left = 0.628283
+anchor_top = 0.696969
+anchor_right = 0.754041
+anchor_bottom = 0.835857
+text = "by thelastflapjack"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.0361328
+anchor_top = 0.473333
+anchor_right = 0.229492
+anchor_bottom = 0.965
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BtnLevelSelect" type="Button" parent="Buttons"]
+margin_top = 100.0
+margin_right = 382.0
+margin_bottom = 154.0
+text = "Level Select"
+
+[node name="BtnControls" type="Button" parent="Buttons"]
+margin_top = 169.0
+margin_right = 382.0
+margin_bottom = 223.0
+text = "Controls"
+
+[node name="BtnSettings" type="Button" parent="Buttons"]
+margin_top = 238.0
+margin_right = 382.0
+margin_bottom = 292.0
+text = "Settings"
+
+[node name="BtnCredits" type="Button" parent="Buttons"]
+margin_top = 307.0
+margin_right = 382.0
+margin_bottom = 361.0
+text = "Credits"
+
+[node name="BtnQuit" type="Button" parent="Buttons"]
+margin_top = 376.0
+margin_right = 382.0
+margin_bottom = 430.0
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+mix_target = 2
+bus = "UISounds"
+
+[connection signal="pressed" from="Buttons/BtnLevelSelect" to="." method="_on_btn_level_pressed"]
+[connection signal="pressed" from="Buttons/BtnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="pressed" from="Buttons/BtnSettings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="Buttons/BtnCredits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="Buttons/BtnQuit" to="." method="_on_btn_exit_pressed"]
