@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/friendly_down.mp3-1956581b130352334e0c199d247a433f.mp3str"
+
+[deps]
+
+source_file="res://raw_assets/sfx/target/friendly/friendly_down.mp3"
+dest_files=[ "res://.import/friendly_down.mp3-1956581b130352334e0c199d247a433f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
