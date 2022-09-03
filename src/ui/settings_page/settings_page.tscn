@@ -1,0 +1,420 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/settings_page/settings_page.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/menu.theme" type="Theme" id=2]
+[ext_resource path="res://raw_assets/sfx/ui/switch_004.ogg" type="AudioStream" id=3]
+
+[node name="SettingsPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.020202
+anchor_top = 0.037037
+anchor_right = 0.413131
+anchor_bottom = 0.962963
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 777.0
+margin_bottom = 76.0
+size_flags_vertical = 0
+
+[node name="BtnBack" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 76.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 777.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+theme_type_variation = "Header2"
+text = "Settings"
+align = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 777.0
+margin_bottom = 1000.0
+size_flags_vertical = 3
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 771.0
+margin_bottom = 908.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Audio" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 765.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/vseparation = 20
+custom_constants/hseparation = 50
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_right = 200.0
+margin_bottom = 33.0
+text = "Master"
+align = 2
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_left = 250.0
+margin_right = 765.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer"]
+margin_right = 21.0
+margin_bottom = 33.0
+text = "0"
+
+[node name="SliderAudioMaster" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer"]
+margin_left = 25.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer"]
+margin_left = 463.0
+margin_right = 515.0
+margin_bottom = 33.0
+text = "100"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_top = 53.0
+margin_right = 200.0
+margin_bottom = 86.0
+text = "Sound Effects"
+align = 2
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_left = 250.0
+margin_top = 53.0
+margin_right = 765.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2"]
+margin_right = 21.0
+margin_bottom = 33.0
+text = "0"
+
+[node name="SliderAudioSFX" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2"]
+margin_left = 25.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2"]
+margin_left = 463.0
+margin_right = 515.0
+margin_bottom = 33.0
+text = "100"
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+visible = false
+margin_top = 106.0
+margin_right = 200.0
+margin_bottom = 139.0
+text = "Music"
+align = 2
+valign = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+visible = false
+margin_top = 106.0
+margin_right = 358.0
+margin_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3"]
+margin_right = 21.0
+margin_bottom = 33.0
+text = "0"
+
+[node name="SliderAudioMusic" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3"]
+margin_left = 25.0
+margin_top = 8.0
+margin_right = 302.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3"]
+margin_left = 306.0
+margin_right = 358.0
+margin_bottom = 33.0
+text = "100"
+
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_top = 106.0
+margin_right = 200.0
+margin_bottom = 139.0
+text = "UI"
+align = 2
+valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
+margin_left = 250.0
+margin_top = 106.0
+margin_right = 765.0
+margin_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4"]
+margin_right = 21.0
+margin_bottom = 33.0
+text = "0"
+
+[node name="SliderAudioUI" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4"]
+margin_left = 25.0
+margin_top = 8.0
+margin_right = 459.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4"]
+margin_left = 463.0
+margin_right = 515.0
+margin_bottom = 33.0
+text = "100"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 325.0
+margin_right = 765.0
+margin_bottom = 329.0
+
+[node name="Gameplay" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 379.0
+margin_right = 765.0
+margin_bottom = 554.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/vseparation = 20
+custom_constants/hseparation = 50
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_right = 188.0
+margin_bottom = 69.0
+text = "Mouse 
+Sensitivity"
+align = 2
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_left = 238.0
+margin_right = 765.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/HBoxContainer"]
+margin_top = 18.0
+margin_right = 21.0
+margin_bottom = 51.0
+text = "0"
+
+[node name="SliderMouseSense" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/HBoxContainer"]
+margin_left = 25.0
+margin_top = 26.0
+margin_right = 471.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/HBoxContainer"]
+margin_left = 475.0
+margin_top = 18.0
+margin_right = 527.0
+margin_bottom = 51.0
+text = "100"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_top = 89.0
+margin_right = 188.0
+margin_bottom = 122.0
+text = "Toggle Sprint"
+align = 2
+valign = 1
+
+[node name="ToggleSprintCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_left = 238.0
+margin_top = 89.0
+margin_right = 302.0
+margin_bottom = 122.0
+size_flags_horizontal = 0
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_top = 142.0
+margin_right = 188.0
+margin_bottom = 175.0
+text = "Toggle Aim"
+align = 2
+valign = 1
+
+[node name="ToggleAimCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Gameplay"]
+margin_left = 238.0
+margin_top = 142.0
+margin_right = 302.0
+margin_bottom = 175.0
+size_flags_horizontal = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 604.0
+margin_right = 765.0
+margin_bottom = 608.0
+
+[node name="Video" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_left = 161.0
+margin_top = 658.0
+margin_right = 603.0
+margin_bottom = 765.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/vseparation = 20
+custom_constants/hseparation = 50
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LeftColumn" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Video"]
+margin_right = 229.0
+margin_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="BorderlessCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn"]
+margin_right = 229.0
+margin_bottom = 33.0
+text = "Borderless"
+align = 2
+
+[node name="FullScreenCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn"]
+margin_top = 37.0
+margin_right = 229.0
+margin_bottom = 70.0
+text = "Full Screen"
+align = 2
+
+[node name="VSyncCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn"]
+margin_top = 74.0
+margin_right = 229.0
+margin_bottom = 107.0
+text = "VSync"
+align = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Video"]
+margin_left = 279.0
+margin_right = 442.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FXAACheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn"]
+margin_right = 163.0
+margin_bottom = 33.0
+text = "FXAA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn"]
+margin_top = 37.0
+margin_right = 163.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn/HBoxContainer"]
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 38.0
+text = "MSAA"
+
+[node name="MSAAOptionButton" type="OptionButton" parent="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn/HBoxContainer"]
+margin_left = 96.0
+margin_right = 163.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+text = "Off"
+items = [ "Off", null, false, 0, null, "x2", null, false, 1, null, "x4", null, false, 2, null, "x8", null, false, 3, null, "x16", null, false, 4, null ]
+selected = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+mix_target = 2
+bus = "UISounds"
+
+[node name="FPSLabel" type="Label" parent="."]
+anchor_left = 0.0247475
+anchor_top = 0.926852
+anchor_right = 0.0717172
+anchor_bottom = 0.957407
+text = "##"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer/SliderAudioMaster" to="." method="_on_slider_audio_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2/SliderAudioSFX" to="." method="_on_slider_audio_sfx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3/SliderAudioMusic" to="." method="_on_sider_audio_music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4/SliderAudioUI" to="." method="_on_sider_audio_ui_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/HBoxContainer/SliderMouseSense" to="." method="_on_slider_mouse_sense_value_changed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/ToggleSprintCheckButton" to="." method="_on_check_btn_toggle_sprint_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/ToggleAimCheckButton" to="." method="_on_check_btn_toggle_aim_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn/BorderlessCheckButton" to="." method="_on_check_btn_borderless_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn/FullScreenCheckButton" to="." method="_on_check_btn_fullscreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Video/LeftColumn/VSyncCheckButton" to="." method="_on_check_btn_vsync_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn/FXAACheckButton" to="." method="_on_check_btn_fxaa_pressed"]
+[connection signal="item_selected" from="VBoxContainer/PanelContainer/VBoxContainer/Video/RightColumn/HBoxContainer/MSAAOptionButton" to="." method="_on_option_btn_msaa_item_selected"]

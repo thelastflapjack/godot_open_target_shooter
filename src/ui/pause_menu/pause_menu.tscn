@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/ui/settings_page/settings_page.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/ui/pause_menu/home/home.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/pause_menu/pause_menu.gd" type="Script" id=3]
+[ext_resource path="res://src/ui/controls_page/controls_page.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui/menu.theme" type="Theme" id=5]
+[ext_resource path="res://raw_assets/sfx/ui/switch_004.ogg" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "popup"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.427451, 0.427451, 0.427451, 0.780392 )
+
+[node name="Pages" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Home" parent="Pages" instance=ExtResource( 2 )]
+
+[node name="SettingsPage" parent="Pages" instance=ExtResource( 1 )]
+cords = Vector2( 0, 1 )
+_back_page_name = "Home"
+
+[node name="ControlsPage" parent="Pages" instance=ExtResource( 4 )]
+cords = Vector2( -1, 0 )
+_back_page_name = "Home"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/popup = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+mix_target = 2
+bus = "UISounds"
