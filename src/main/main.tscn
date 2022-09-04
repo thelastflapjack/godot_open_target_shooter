@@ -49,3 +49,9 @@ color = Color( 1, 1, 1, 0 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/fade = SubResource( 2 )
+
+[node name="LoaderPollTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="LoaderPollTimer" to="." method="_on_loader_poll_timer_timeout"]
