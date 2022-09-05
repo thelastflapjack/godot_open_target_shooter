@@ -178,6 +178,7 @@ _global_script_class_icons={
 
 config/name="open_target_shooter"
 run/main_scene="res://src/main/main.tscn"
+config/icon="res://icon.png"
 
 [audio]
 
