@@ -25,10 +25,10 @@ onready var _option_btn_msaa: OptionButton = find_node("MSAAOptionButton")
 # Engine Callback Methods  #
 ############################
 func _ready() -> void:
-	_slider_audio_master.value = UserPreferences.audio_vol_master
-	_slider_audio_sfx.value = UserPreferences.audio_vol_sfx
-	_slider_audio_music.value = UserPreferences.audio_vol_music
-	_slider_audio_ui.value = UserPreferences.audio_vol_ui
+	_slider_audio_master.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Master]
+	_slider_audio_sfx.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Sfx]
+	_slider_audio_music.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Music]
+	_slider_audio_ui.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Ui]
 	
 	_slider_mouse_sensitivity.value = UserPreferences.mouse_sensitivity
 	_check_btn_toggle_sprint.pressed = UserPreferences.toggle_sprint
@@ -55,24 +55,9 @@ func _on_btn_back_pressed() -> void:
 		_audio_btn_pressed.play()
 
 
-func _on_slider_audio_master_value_changed(value: float) -> void:
+func _on_audio_slider_value_changed(value: float, bus: int) -> void:
 	if active:
-		UserPreferences.audio_vol_master = value
-
-
-func _on_slider_audio_sfx_value_changed(value: float) -> void:
-	if active:
-		UserPreferences.audio_vol_sfx = value
-
-
-func _on_sider_audio_music_value_changed(value: float) -> void:
-	if active:
-		UserPreferences.audio_vol_music = value
-
-
-func _on_sider_audio_ui_value_changed(value: float) -> void:
-	if active:
-		UserPreferences.audio_vol_ui = value
+		UserPreferences.set_audio_vol(bus,value)
 
 
 func _on_slider_mouse_sense_value_changed(value: float) -> void:
