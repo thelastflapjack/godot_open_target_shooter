@@ -7,12 +7,12 @@ export(PackedScene) var _initial_scene: PackedScene
 
 ### Private variables ###
 var _loader: ResourceInteractiveLoader
-const _poll_time : float = 0.02
+const _poll_time: float = 0.02
 
 ### Onready variables ###
 onready var _anim_player: AnimationPlayer = get_node("AnimationPlayer")
 onready var _fade_rect: ColorRect = get_node("CanvasLayer/ColorRect")
-onready var _loader_poll_timer : Timer = get_node("LoaderPollTimer")
+onready var _loader_poll_timer: Timer = get_node("LoaderPollTimer")
 
 
 ############################
@@ -32,11 +32,13 @@ func _ready() -> void:
 func _on_change_scene_request(scene_res_path: String) -> void:
 	call_deferred("_change_scene_background", scene_res_path)
 
-func _on_animation_finished(anim_name: String) -> void:
+
+func _on_animation_finished(_anim_name: String) -> void:
 	_fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+
 func _on_loader_poll_timer_timeout() -> void:
-	var err = _loader.poll()
+	var err: int = _loader.poll()
 
 	if err == ERR_FILE_EOF: # Finished loading.
 		var resource = _loader.get_resource()
@@ -53,7 +55,7 @@ func _on_loader_poll_timer_timeout() -> void:
 ############################
 #      Private Methods     #
 ############################
-func _fade(is_in : bool) -> void:
+func _fade(is_in: bool) -> void:
 	#BUG: we can do _anim_player.play("fade",-1,1.0,!is_in),
 	#     but apparently calling AnimationPlayer.play() with backward set to true doesn't play backward for some reason
 	
@@ -72,7 +74,6 @@ func _set_current_scene(new_scene: Node) -> void:
 			new_scene, "change_scene_request",
 			self, "_on_change_scene_request"
 	)
-	get_tree().current_scene = new_scene
 	if _anim_player.is_playing():
 		yield(_anim_player, "animation_finished")
 	_fade(false)
@@ -82,14 +83,13 @@ func _change_scene_background(new_scene_path: String) -> void:
 	if new_scene_path == "":
 		new_scene_path = _initial_scene.get_path()
 	
-	
 	_loader = ResourceLoader.load_interactive(new_scene_path, "PackedScene")
 	assert(_loader, "ResourceLoader is null. Attemped load target path: %s" % new_scene_path)
 	
 	_fade(true)
 	yield(_anim_player, "animation_finished")
 	
-	var curr_scene := get_tree().current_scene
+	var curr_scene: Node = get_tree().current_scene
 	if curr_scene:
 		curr_scene.disconnect("change_scene_request", self, "_on_change_scene_request")
 		curr_scene.queue_free()
