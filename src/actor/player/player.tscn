@@ -26,9 +26,9 @@
 [ext_resource path="res://src/actor/player/animations/run_reload_pose_loop.anim" type="Animation" id=24]
 [ext_resource path="res://src/actor/player/animations/walk_reload_pose_loop.anim" type="Animation" id=25]
 
-[sub_resource type="CapsuleShape" id=80]
-radius = 0.261124
-height = 1.29274
+[sub_resource type="CylinderShape" id=165]
+height = 1.81137
+radius = 0.235567
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "dummy_Cube002"
@@ -351,7 +351,7 @@ nodes/BlendSpace2D/position = Vector2( -380, 240 )
 nodes/TimeScale/node = SubResource( 160 )
 nodes/TimeScale/position = Vector2( -160, 180 )
 nodes/output/position = Vector2( 320, 120 )
-node_connections = [ "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "TimeScale", 0, "BlendSpace2D", "output", 0, "Blend2" ]
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "TimeScale", 0, "BlendSpace2D" ]
 
 [sub_resource type="AnimationNodeAnimation" id=25]
 animation = "idle_reload_pose_loop"
@@ -367,7 +367,7 @@ nodes/Animation/node = SubResource( 99 )
 nodes/Animation/position = Vector2( -200, 120 )
 nodes/TimeScale/node = SubResource( 100 )
 nodes/TimeScale/position = Vector2( 100, 100 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=81]
 animation = "walk_reload_pose_loop"
@@ -381,7 +381,7 @@ nodes/Animation/position = Vector2( -100, 120 )
 nodes/TimeScale/node = SubResource( 82 )
 nodes/TimeScale/position = Vector2( 180, 100 )
 nodes/output/position = Vector2( 460, 140 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=84]
 xfade_time = 0.3
@@ -452,8 +452,8 @@ script = ExtResource( 1 )
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShapeStanding" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.908362, 0 )
-shape = SubResource( 80 )
+transform = Transform( 1, 0, 0, 0, 1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0.908362, 0 )
+shape = SubResource( 165 )
 
 [node name="Body" type="Spatial" parent="."]
 
@@ -469,7 +469,7 @@ bones/1/name = "hips"
 bones/1/parent = 0
 bones/1/rest = Transform( 1, -4.35694e-07, 2.91249e-07, -2.84715e-07, 0.0149236, 0.999889, -4.39992e-07, -0.999889, 0.0149236, -3.30892e-07, 0.0220108, -0.868889 )
 bones/1/enabled = true
-bones/1/bound_children = [  ]
+bones/1/bound_children = [ NodePath("BoneAttachmentHip") ]
 bones/2/name = "leg_upper_R"
 bones/2/parent = 1
 bones/2/rest = Transform( 0.997542, -0.0578266, -0.0395661, -0.0585, -0.998157, -0.0160765, -0.0385635, 0.0183516, -0.999088, -0.0990524, 0.0504528, 0.00539813 )
@@ -494,7 +494,7 @@ bones/6/name = "chest"
 bones/6/parent = 1
 bones/6/rest = Transform( 1, 7.88332e-08, -5.21047e-07, -2.53872e-08, 0.994806, 0.101789, 5.26365e-07, -0.101789, 0.994806, -3.29386e-16, 0.207535, 7.41188e-09 )
 bones/6/enabled = true
-bones/6/bound_children = [  ]
+bones/6/bound_children = [ NodePath("BoneAttachmentChest") ]
 bones/7/name = "neck"
 bones/7/parent = 6
 bones/7/rest = Transform( 1, 4.77472e-08, -2.46171e-07, -9.2126e-08, 0.983006, -0.183573, 2.33222e-07, 0.183573, 0.983006, -9.10833e-15, 0.437263, 2.67551e-08 )
@@ -657,7 +657,7 @@ use_magnet = true
 magnet = Vector3( 1, 0, -1 )
 
 [node name="BoneAttachmentChest" type="BoneAttachment" parent="Body/dummy_rig/Skeleton"]
-transform = Transform( 1, 3.69618e-09, -2.41807e-07, 1.73384e-08, 0.996215, 0.0869316, 2.41213e-07, -0.0869316, 0.996215, -2.14816e-09, 1.07209, 0.025108 )
+transform = Transform( 1, 3.69615e-09, -2.41807e-07, 1.73384e-08, 0.996215, 0.0869316, 2.41213e-07, -0.0869316, 0.996215, -1.99847e-09, 1.06871, 0.025108 )
 bone_name = "chest"
 
 [node name="WeaponsAnchor" type="Position3D" parent="Body/dummy_rig/Skeleton/BoneAttachmentChest"]
@@ -681,7 +681,7 @@ anims/RESET = SubResource( 108 )
 anims/lower_weapons = SubResource( 109 )
 
 [node name="BoneAttachmentHip" type="BoneAttachment" parent="Body/dummy_rig/Skeleton"]
-transform = Transform( 1, -4.63232e-08, 2.85438e-07, 5.0578e-08, 0.999889, -0.0149236, -2.84715e-07, 0.0149236, 0.999889, 7.46553e-09, 0.864574, 0.0220108 )
+transform = Transform( 1, -4.63233e-08, 2.85438e-07, 5.0578e-08, 0.999889, -0.0149236, -2.84715e-07, 0.0149236, 0.999889, 7.61523e-09, 0.861195, 0.0220108 )
 bone_name = "hips"
 
 [node name="AmmoBag" type="MeshInstance" parent="Body/dummy_rig/Skeleton/BoneAttachmentHip"]
