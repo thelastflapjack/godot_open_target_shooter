@@ -41,7 +41,7 @@ func _ready() -> void:
 	_option_btn_msaa.selected = UserPreferences.msaa
 
 
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	_label_fps.text = String(Performance.get_monitor(Performance.TIME_FPS))
 
 
@@ -57,7 +57,7 @@ func _on_btn_back_pressed() -> void:
 
 func _on_audio_slider_value_changed(value: float, bus: int) -> void:
 	if active:
-		UserPreferences.set_audio_vol(bus,value)
+		UserPreferences.set_audio_vol(bus, value)
 
 
 func _on_slider_mouse_sense_value_changed(value: float) -> void:
