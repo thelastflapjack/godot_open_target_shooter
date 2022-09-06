@@ -406,10 +406,10 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnBack" to="." method="_on_btn_back_pressed"]
-[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer/SliderAudioMaster" to="." method="_on_slider_audio_master_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2/SliderAudioSFX" to="." method="_on_slider_audio_sfx_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3/SliderAudioMusic" to="." method="_on_sider_audio_music_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4/SliderAudioUI" to="." method="_on_sider_audio_ui_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer/SliderAudioMaster" to="." method="_on_audio_slider_value_changed" binds= [ 0 ]]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer2/SliderAudioSFX" to="." method="_on_audio_slider_value_changed" binds= [ 1 ]]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3/SliderAudioMusic" to="." method="_on_audio_slider_value_changed" binds= [ 2 ]]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4/SliderAudioUI" to="." method="_on_audio_slider_value_changed" binds= [ 3 ]]
 [connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/HBoxContainer/SliderMouseSense" to="." method="_on_slider_mouse_sense_value_changed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/ToggleSprintCheckButton" to="." method="_on_check_btn_toggle_sprint_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Gameplay/ToggleAimCheckButton" to="." method="_on_check_btn_toggle_aim_pressed"]
