@@ -1,6 +1,17 @@
 extends Node
 # Autoloaded script to contain user preferences
 
+
+### Enums ###
+enum AudioBuses {
+	Master = 0,
+	Sfx = 1,
+	Music = 2,
+	Ui = 3,
+}
+
+
+### Public variables ###
 var audio_vol: Dictionary = {
 	AudioBuses.Master: 0.5,
 	AudioBuses.Sfx: 0.5,
@@ -18,20 +29,22 @@ var vsync: bool = true setget set_vsync
 var fxaa: bool = false setget set_fxaa
 var msaa: int = Viewport.MSAA_4X setget set_msaa
 
-enum AudioBuses {
-	Master = 0,
-	Sfx = 1,
-	Music = 2,
-	Ui = 3,
-	}
+
+############################
+# Engine Callback Methods  #
+############################
 
 func _ready() -> void:
 	_load()
 
 
+############################
+#      Public Methods      #
+############################
+
 func set_audio_vol(bus: int, val: float) -> void:
 	audio_vol[bus] = clamp(val, 0, 1.0)
-	AudioServer.set_bus_volume_db(bus,val)
+	AudioServer.set_bus_volume_db(bus, _vol_linear_to_db(val))
 	AudioServer.set_bus_mute(bus, val == 0) #mute if val is 0, unmute otherwise
 
 
@@ -96,6 +109,7 @@ func save() -> void:
 ############################
 #      Private Methods     #
 ############################
+
 func _vol_db_to_linear(val: float) -> float:
 	return db2linear(val - 6)
 
