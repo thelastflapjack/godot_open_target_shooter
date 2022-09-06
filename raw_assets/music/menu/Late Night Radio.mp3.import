@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Late Night Radio.mp3-c68095933942029e5a2c5ad928b65fb0.mp3str"
+
+[deps]
+
+source_file="res://raw_assets/music/menu/Late Night Radio.mp3"
+dest_files=[ "res://.import/Late Night Radio.mp3-c68095933942029e5a2c5ad928b65fb0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

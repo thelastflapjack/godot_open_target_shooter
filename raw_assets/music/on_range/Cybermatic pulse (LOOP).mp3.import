@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cybermatic pulse (LOOP).mp3-e314213aa43639f1c17194102fca4df1.mp3str"
+
+[deps]
+
+source_file="res://raw_assets/music/on_range/Cybermatic pulse (LOOP).mp3"
+dest_files=[ "res://.import/Cybermatic pulse (LOOP).mp3-e314213aa43639f1c17194102fca4df1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
