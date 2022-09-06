@@ -351,7 +351,7 @@ nodes/BlendSpace2D/position = Vector2( -380, 240 )
 nodes/TimeScale/node = SubResource( 160 )
 nodes/TimeScale/position = Vector2( -160, 180 )
 nodes/output/position = Vector2( 320, 120 )
-node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "TimeScale", 0, "BlendSpace2D" ]
+node_connections = [ "TimeScale", 0, "BlendSpace2D", "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "output", 0, "Blend2" ]
 
 [sub_resource type="AnimationNodeAnimation" id=25]
 animation = "idle_reload_pose_loop"
@@ -367,7 +367,7 @@ nodes/Animation/node = SubResource( 99 )
 nodes/Animation/position = Vector2( -200, 120 )
 nodes/TimeScale/node = SubResource( 100 )
 nodes/TimeScale/position = Vector2( 100, 100 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=81]
 animation = "walk_reload_pose_loop"
@@ -381,7 +381,7 @@ nodes/Animation/position = Vector2( -100, 120 )
 nodes/TimeScale/node = SubResource( 82 )
 nodes/TimeScale/position = Vector2( 180, 100 )
 nodes/output/position = Vector2( 460, 140 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=84]
 xfade_time = 0.3
@@ -657,7 +657,7 @@ use_magnet = true
 magnet = Vector3( 1, 0, -1 )
 
 [node name="BoneAttachmentChest" type="BoneAttachment" parent="Body/dummy_rig/Skeleton"]
-transform = Transform( 1, 3.69615e-09, -2.41807e-07, 1.73384e-08, 0.996215, 0.0869316, 2.41213e-07, -0.0869316, 0.996215, -1.99847e-09, 1.06871, 0.025108 )
+transform = Transform( 1, 3.69618e-09, -2.41807e-07, 1.73384e-08, 0.996215, 0.0869316, 2.41213e-07, -0.0869316, 0.996215, -2.14816e-09, 1.07209, 0.025108 )
 bone_name = "chest"
 
 [node name="WeaponsAnchor" type="Position3D" parent="Body/dummy_rig/Skeleton/BoneAttachmentChest"]
@@ -681,7 +681,7 @@ anims/RESET = SubResource( 108 )
 anims/lower_weapons = SubResource( 109 )
 
 [node name="BoneAttachmentHip" type="BoneAttachment" parent="Body/dummy_rig/Skeleton"]
-transform = Transform( 1, -4.63233e-08, 2.85438e-07, 5.0578e-08, 0.999889, -0.0149236, -2.84715e-07, 0.0149236, 0.999889, 7.61523e-09, 0.861195, 0.0220108 )
+transform = Transform( 1, -4.63232e-08, 2.85438e-07, 5.0578e-08, 0.999889, -0.0149236, -2.84715e-07, 0.0149236, 0.999889, 7.46553e-09, 0.864574, 0.0220108 )
 bone_name = "hips"
 
 [node name="AmmoBag" type="MeshInstance" parent="Body/dummy_rig/Skeleton/BoneAttachmentHip"]
@@ -714,7 +714,6 @@ bus = "SoundEffects"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 34 )
 anim_player = NodePath("../Body/AnimationPlayer")
-active = true
 process_mode = 0
 parameters/playback = SubResource( 139 )
 parameters/aim/Blend2/blend_amount = 1.0

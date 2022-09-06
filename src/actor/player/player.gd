@@ -47,6 +47,7 @@ onready var aim_block_area: Area = $AimBlockArea
 # Engine Callback Methods  #
 ############################
 func _ready() -> void:
+	_anim_tree.active = true
 	_animation_state_machine = _anim_tree["parameters/playback"]
 	
 	current_weapon = _weapon_slot_primary.get_child(0)
