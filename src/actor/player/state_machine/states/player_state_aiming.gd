@@ -28,8 +28,6 @@ func physics_update(delta: float) -> void:
 	_apply_xz_movement(delta, movement_direction_xz)
 	_rotate_body(delta, -_player.camera_system.get_forward_vector())
 	
-	_apply_gravity(delta)
-	
 	_player.velocity = _player.move_and_slide_with_snap(
 			_player.velocity, _player.snap_vector,  Vector3.UP, true,
 			4, deg2rad(_player.floor_max_angle_deg)

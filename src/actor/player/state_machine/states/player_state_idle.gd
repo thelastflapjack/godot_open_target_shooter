@@ -16,7 +16,6 @@ func physics_update(delta: float) -> void:
 	.physics_update(delta)
 	
 	_apply_xz_movement(delta, Vector3.ZERO)
-	_apply_gravity(delta)
 	
 	_player.velocity = _player.move_and_slide_with_snap(
 			_player.velocity, _player.snap_vector,  Vector3.UP, true,

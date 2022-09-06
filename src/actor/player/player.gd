@@ -8,19 +8,13 @@ signal aiming_started()
 signal aiming_stopped()
 signal shooting(spawn_point, bullet_speed, bullet_scene, bullet_damage)
 
-### Exported variables ###
-export(float, 1, 89) var floor_max_angle_deg := 45.0
-
 
 ### Public variables ###
-var jump_impulse_speed: float
-var gravity_acceleration_fall: float
-var gravity_acceleration_jump: float
-
 var velocity := Vector3.ZERO
 var snap_vector := Vector3.ZERO
 var camera_system: LevelCameraSystem
 var input_movement_direction_xz := Vector3.ZERO
+var floor_max_angle_deg := 45.0
 
 var current_weapon: Weapon
 var can_aim: bool = true
@@ -28,9 +22,8 @@ var can_aim: bool = true
 
 ### Private variables ###
 var _animation_state_machine: AnimationNodeStateMachinePlayback setget ,get_animation_state_machine
-
 var _is_weapon_lowered: bool = false
-var aim_blocking_bodies: Array
+var _aim_blocking_bodies: Array
 
 
 ### Onready variables ###
@@ -130,13 +123,13 @@ func get_animation_state_machine() -> AnimationNodeStateMachinePlayback:
 # Signal Connected Methods #
 ############################
 func _on_aim_block_area_body_entered(body: Spatial) -> void:
-	aim_blocking_bodies.append(body)
+	_aim_blocking_bodies.append(body)
 	can_aim = false
 
 
 func _on_aim_block_area_body_exited(body: Spatial) -> void:
-	aim_blocking_bodies.erase(body)
-	can_aim = (aim_blocking_bodies.size() == 0)
+	_aim_blocking_bodies.erase(body)
+	can_aim = (_aim_blocking_bodies.size() == 0)
 
 
 ############################

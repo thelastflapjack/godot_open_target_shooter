@@ -23,8 +23,6 @@ func physics_update(delta: float) -> void:
 	if movement_direction_xz != Vector3.ZERO:
 		_rotate_body(delta, movement_direction_xz)
 	
-	_apply_gravity(delta)
-	
 	_player.velocity = _player.move_and_slide_with_snap(
 			_player.velocity, _player.snap_vector,  Vector3.UP, true,
 			4, deg2rad(_player.floor_max_angle_deg)

@@ -91,15 +91,6 @@ func _rotate_body(delta: float, direction: Vector3) -> void:
 	)
 
 
-func _apply_gravity(_delta: float) -> void:
-#	if _player.is_on_floor() && _player.get_floor_normal().is_equal_approx(Vector3.UP):
-#		_player.velocity.y = max(
-#				_player.velocity.y + (_player.gravity_acceleration_fall * delta),
-#				_player.max_speed_fall
-#		)
-	pass
-
-
 func _animate() -> void:
 	pass
 
