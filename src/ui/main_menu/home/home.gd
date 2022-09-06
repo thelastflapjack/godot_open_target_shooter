@@ -3,7 +3,7 @@ extends MultiPageUIPage
 
 func _ready() -> void:
 	MusicManager.transition_to_track(
-			MusicManager.Tracks.MAIN_MENU, true, 3
+			MusicManager.Tracks.MAIN_MENU, 3
 	)
 
 

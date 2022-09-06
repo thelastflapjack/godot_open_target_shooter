@@ -6,6 +6,7 @@ extends Node
 
 ### Enums ###
 enum Tracks {
+	None,
 	MAIN_MENU,
 	ON_RANGE,
 	OFF_RANGE,
@@ -13,7 +14,7 @@ enum Tracks {
 
 
 ### Private variables ###
-var _current_track_id: int = -1
+var _current_track_id: int = Tracks.None
 
 
 ### Onready variables ###
@@ -28,15 +29,15 @@ onready var _track_stream_players: Dictionary = {
 #      Public Methods      #
 ############################
 
-func transition_to_track(new_track_id: int, cross_fade: bool=true, fade_time: float=1.5, transition_delay: float=0.0) -> void:
+func transition_to_track(new_track_id: int, fade_time: float=1.5, transition_delay: float=0.0) -> void:
 	assert(
 			_track_stream_players.keys().has(new_track_id), 
 			"MusicManager Error: Tried to transition to non-existent track."
 	)
 	
-	if _current_track_id != -1:
+	if _current_track_id != Tracks.None:
 		_track_fade(_current_track_id, false, fade_time)
-		if (not cross_fade) and (transition_delay > 0.0):
+		if transition_delay > 0.0:
 			yield(get_tree().create_timer(transition_delay), "timeout")
 	_track_fade(new_track_id, true, fade_time)
 	_current_track_id = new_track_id
@@ -48,27 +49,19 @@ func transition_to_track(new_track_id: int, cross_fade: bool=true, fade_time: fl
 
 func _track_fade(track_id: int, fade_in: bool, fade_time: float) -> void:
 	var track_stream_player: AudioStreamPlayer = _track_stream_players[track_id]
-	var tween: SceneTreeTween = create_tween()
-	var volume_tweener: PropertyTweener
-	# warning-ignore:unused_variable
-	var play_tweener: CallbackTweener
+	var tween: SceneTreeTween = create_tween().set_trans(Tween.TRANS_SINE)
 	
-	tween = tween.set_parallel(false)
 	if fade_in:
-		play_tweener = tween.tween_callback(track_stream_player, "play")
-		volume_tweener = tween.tween_property(
+		tween.tween_callback(track_stream_player, "play")
+		tween.tween_property(
 				track_stream_player, "volume_db", 0.0, fade_time
-		)
-		volume_tweener = volume_tweener.from(-80.0)
-		volume_tweener = volume_tweener.set_ease(Tween.EASE_OUT)
-		volume_tweener = volume_tweener.set_trans(Tween.TRANS_EXPO)
+		).from(-20.0).set_ease(Tween.EASE_IN)
+	
 	else:
-		volume_tweener = tween.tween_property(
-				track_stream_player, "volume_db", -80.0, fade_time
-		)
-		volume_tweener = volume_tweener.from(0.0)
-		volume_tweener = volume_tweener.set_ease(Tween.EASE_IN)
-		volume_tweener = volume_tweener.set_trans(Tween.TRANS_EXPO)
-		play_tweener = tween.tween_callback(track_stream_player, "stop")
+		tween.tween_property(
+				track_stream_player, "volume_db", -20.0, fade_time
+		).from(0.0).set_ease(Tween.EASE_OUT)
+		tween.tween_callback(track_stream_player, "stop")
+		
 	tween.play()
 

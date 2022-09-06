@@ -42,7 +42,7 @@ onready var _audio_player_run_end: AudioStreamPlayer = $AudioStreamRunEnd
 ############################
 func _ready() -> void:
 	MusicManager.transition_to_track(
-			MusicManager.Tracks.OFF_RANGE, true, 3
+			MusicManager.Tracks.OFF_RANGE, 3
 	)
 	_player.camera_system = _camera_system
 	
@@ -164,7 +164,7 @@ func _connect_signals() -> void:
 
 func _start_run() -> void:
 	MusicManager.transition_to_track(
-			MusicManager.Tracks.ON_RANGE, true, 1
+			MusicManager.Tracks.ON_RANGE, 1
 	)
 	_audio_player_run_start.play()
 	_is_player_on_range = true
@@ -195,7 +195,7 @@ func _update_and_show_run_summary(missed_enemy_penalty_time_total: float, hit_fr
 
 func _finish_run() -> void:
 	MusicManager.transition_to_track(
-			MusicManager.Tracks.OFF_RANGE, true, 3
+			MusicManager.Tracks.OFF_RANGE, 3
 	)
 	_audio_player_run_end.play()
 	_is_player_on_range = false
