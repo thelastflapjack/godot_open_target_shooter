@@ -8,9 +8,9 @@ extends Spatial
 signal hit(target)
 
 ### Exported variables ###
-export(float) var _move_distance: float = 0 setget _set_move_distance
-export(float, 0.1, 5) var _move_speed: float = 1
-export(float) var _end_wait: float = 1
+export(float) var _move_distance: float = 0.0 setget _set_move_distance
+export(float, 0.1, 5.0) var _move_speed: float = 1.0
+export(float) var _end_wait: float = 1.0
 export(bool) var is_enemy: bool = true setget _set_is_enemy
 
 ### Private variables ###
@@ -118,21 +118,15 @@ func _set_is_enemy(val: bool) -> void:
 func _tween_popup_target_setup() -> void:
 	var step_duration: float = abs(_move_distance) / _move_speed
 	_tween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	var tweener_step_1: PropertyTweener = _tween.tween_property(
+	var _tweener_step_1: PropertyTweener = _tween.tween_property(
 			_popup_target, "translation", 
 			Vector3(_move_distance, 0, 0), step_duration
-	)
-	tweener_step_1 = tweener_step_1.set_ease(Tween.EASE_OUT_IN)
-	tweener_step_1 = tweener_step_1.set_trans(Tween.TRANS_LINEAR)
-	tweener_step_1 = tweener_step_1.set_delay(_end_wait)
+	).set_ease(Tween.EASE_OUT_IN).set_trans(Tween.TRANS_LINEAR).set_delay(_end_wait)
 	
-	var tweener_step_2: PropertyTweener = _tween.tween_property(
+	var _tweener_step_2: PropertyTweener = _tween.tween_property(
 			_popup_target, "translation", 
 			Vector3(0, 0, 0), step_duration
-	)
-	tweener_step_2 = tweener_step_2.set_ease(Tween.EASE_OUT_IN)
-	tweener_step_2 = tweener_step_2.set_trans(Tween.TRANS_LINEAR)
-	tweener_step_2 = tweener_step_2.set_delay(_end_wait)
+	).set_ease(Tween.EASE_OUT_IN).set_trans(Tween.TRANS_LINEAR).set_delay(_end_wait)
 	
 	_tween = _tween.set_loops()
 

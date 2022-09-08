@@ -4,19 +4,19 @@ extends Node
 
 ### Enums ###
 enum AudioBuses {
-	Master = 0,
-	Sfx = 1,
-	Music = 2,
-	Ui = 3,
+	MASTER = 0,
+	SFX = 1,
+	MUSIC = 2,
+	UI = 3,
 }
 
 
 ### Public variables ###
 var audio_vol: Dictionary = {
-	AudioBuses.Master: 0.5,
-	AudioBuses.Sfx: 0.5,
-	AudioBuses.Music: 0.5,
-	AudioBuses.Ui: 0.5,
+	AudioBuses.MASTER: 0.5,
+	AudioBuses.SFX: 0.5,
+	AudioBuses.MUSIC: 0.5,
+	AudioBuses.UI: 0.5,
 }
 
 var mouse_sensitivity: float = 0.5 setget set_mouse_sensitivity
@@ -88,10 +88,10 @@ func save() -> void:
 	var prefs_cfg: ConfigFile = ConfigFile.new()
 	var err: int = prefs_cfg.load("user://user_prefs.cfg")
 	if err == OK:
-		prefs_cfg.set_value("user_prefs", "audio_vol_master", audio_vol[AudioBuses.Master])
-		prefs_cfg.set_value("user_prefs", "audio_vol_music", audio_vol[AudioBuses.Music])
-		prefs_cfg.set_value("user_prefs", "audio_vol_sfx", audio_vol[AudioBuses.Sfx])
-		prefs_cfg.set_value("user_prefs", "audio_vol_ui", audio_vol[AudioBuses.Ui])
+		prefs_cfg.set_value("user_prefs", "audio_vol_master", audio_vol[AudioBuses.MASTER])
+		prefs_cfg.set_value("user_prefs", "audio_vol_music", audio_vol[AudioBuses.MUSIC])
+		prefs_cfg.set_value("user_prefs", "audio_vol_sfx", audio_vol[AudioBuses.SFX])
+		prefs_cfg.set_value("user_prefs", "audio_vol_ui", audio_vol[AudioBuses.UI])
 		
 		prefs_cfg.set_value("user_prefs", "mouse_sensitivity", mouse_sensitivity)
 		prefs_cfg.set_value("user_prefs", "toggle_sprint", toggle_sprint)
@@ -125,10 +125,10 @@ func _load() -> void:
 	if err == OK:
 		# Using set funcs for most so preferences are applied when this autoload
 		# enters the sceen tree as the game program starts.
-		set_audio_vol(AudioBuses.Master,prefs_cfg.get_value("user_prefs", "audio_vol_master"))
-		set_audio_vol(AudioBuses.Music,prefs_cfg.get_value("user_prefs", "audio_vol_music"))
-		set_audio_vol(AudioBuses.Sfx,prefs_cfg.get_value("user_prefs", "audio_vol_sfx"))
-		set_audio_vol(AudioBuses.Ui,prefs_cfg.get_value("user_prefs", "audio_vol_ui"))
+		set_audio_vol(AudioBuses.MASTER, prefs_cfg.get_value("user_prefs", "audio_vol_master"))
+		set_audio_vol(AudioBuses.MUSIC, prefs_cfg.get_value("user_prefs", "audio_vol_music"))
+		set_audio_vol(AudioBuses.SFX, prefs_cfg.get_value("user_prefs", "audio_vol_sfx"))
+		set_audio_vol(AudioBuses.UI, prefs_cfg.get_value("user_prefs", "audio_vol_ui"))
 		
 		set_mouse_sensitivity(prefs_cfg.get_value("user_prefs", "mouse_sensitivity"))
 		toggle_sprint = prefs_cfg.get_value("user_prefs", "toggle_sprint")

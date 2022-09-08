@@ -10,11 +10,11 @@ signal shooting(spawn_point, bullet_speed, bullet_scene, bullet_damage)
 
 
 ### Public variables ###
-var velocity := Vector3.ZERO
-var snap_vector := Vector3.ZERO
+var velocity: Vector3 = Vector3.ZERO
+var snap_vector: Vector3 = Vector3.ZERO
 var camera_system: LevelCameraSystem
-var input_movement_direction_xz := Vector3.ZERO
-var floor_max_angle_deg := 45.0
+var input_movement_direction_xz: Vector3 = Vector3.ZERO
+var floor_max_angle_deg: float = 45.0
 
 var current_weapon: Weapon
 var can_aim: bool = true
@@ -56,7 +56,9 @@ func _ready() -> void:
 	_ik_arm_right.set_target_node(current_weapon.grip_right_hand.get_path())
 	_ik_arm_right.start()
 	
-	_weapon_slot_secondary.get_child(0).ammo_loaded = _weapon_slot_secondary.get_child(0).magazine_size
+	_weapon_slot_secondary.get_child(0).ammo_loaded = (
+			_weapon_slot_secondary.get_child(0).magazine_size
+	)
 	
 	_hud.update_weapon_ammo(current_weapon.ammo_loaded)
 	_hud.update_weapon_icon(current_weapon.icon)
@@ -94,7 +96,7 @@ func raise_weapon() -> void:
 
 
 func _switch_weapon() -> void:
-	if current_weapon.slot_type == Weapon.SLOT_TYPE.PRIMARY:
+	if current_weapon.slot_type == Weapon.SlotType.PRIMARY:
 		_weapon_slot_primary.visible = false
 		_weapon_slot_secondary.visible = true
 		current_weapon = _weapon_slot_secondary.get_child(0)
@@ -148,7 +150,9 @@ func _reload_current_weapon() -> void:
 		# Get new magazine
 		var time_hand_to_ammo_bag: float = 0.25
 		var time_hand_in_ammo_bag: float = 0.5
-		var get_mag_tween: SceneTreeTween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+		var get_mag_tween: SceneTreeTween = create_tween().set_process_mode(
+				Tween.TWEEN_PROCESS_PHYSICS
+		)
 		# Reach for new mag
 		var tweener_reach: PropertyTweener = get_mag_tween.tween_property(
 				_ik_arm_left, "interpolation", 0.0, time_hand_to_ammo_bag

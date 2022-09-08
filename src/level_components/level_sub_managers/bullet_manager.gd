@@ -64,8 +64,3 @@ func _on_bullet_collided(bullet: Bullet, collider: Spatial) -> void:
 		collider.hurt(bullet.damage)
 	bullet.destroy()
 
-
-############################
-#      Private Methods     #
-############################
-

@@ -3,10 +3,10 @@ extends State
 # Generic state for the player which should be extended to specific states
 
 ### Exported variables ###
-export(float) var target_speed_xz := 1.0
-export(float) var acceleration_xz := 1.0
-export(float) var friction_xz := 1.0
-export(float) var acceleration_body_rotation := 1.0
+export(float) var target_speed_xz: float = 1.0
+export(float) var acceleration_xz: float = 1.0
+export(float) var friction_xz: float = 1.0
+export(float) var acceleration_body_rotation: float = 1.0
 
 ### Private variables ###
 var _player: Player
@@ -44,7 +44,7 @@ func physics_update(delta: float) -> void:
 	_update_snap_vector()
 
 
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	_animate()
 
 
@@ -63,10 +63,10 @@ func _update_snap_vector() -> void:
 
 
 func _get_input_movement_direction_xz() -> Vector3:
-	var input_vector := Vector3.ZERO
+	var input_vector: Vector3 = Vector3.ZERO
 	input_vector.z = Input.get_action_strength("player_backward") - Input.get_action_strength("player_forward")
 	input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-	var direction = input_vector.normalized().rotated(
+	var direction: Vector3 = input_vector.normalized().rotated(
 			Vector3.UP, 
 			_player.camera_system.get_camera_global_transform().basis.get_euler().y
 	)
@@ -75,11 +75,13 @@ func _get_input_movement_direction_xz() -> Vector3:
 
 func _apply_xz_movement(delta: float, direction_xz: Vector3) -> void:
 	if direction_xz != Vector3.ZERO:
-		var velocity_target_xz := direction_xz * target_speed_xz
+		var velocity_target_xz: Vector3 = direction_xz * target_speed_xz
 		_player.velocity.x = _player.velocity.move_toward(velocity_target_xz, acceleration_xz * delta).x
 		_player.velocity.z = _player.velocity.move_toward(velocity_target_xz, acceleration_xz * delta).z
 	else:
-		var frictioned_velocity_xz := _player.velocity.move_toward(Vector3.ZERO, friction_xz * delta)
+		var frictioned_velocity_xz: Vector3 = _player.velocity.move_toward(
+				Vector3.ZERO, friction_xz * delta
+		)
 		_player.velocity.x = frictioned_velocity_xz.x
 		_player.velocity.z = frictioned_velocity_xz.z
 

@@ -6,13 +6,6 @@ extends Node
 ### Signals ###
 signal badge_earned(badge)
 
-### Enums ###
-
-### Constants ###
-
-### Exported variables ###
-
-### Public variables ###
 
 ### Private variables ###
 var _multikill_window: int = 2
@@ -50,7 +43,7 @@ func get_run_badges() -> Dictionary:
 	return _run_badges.duplicate()
 
 
-func evaluate_end_of_run_stats(all_enemies_hit: bool, no_frendlies_hit, accuracy: float) -> void:
+func evaluate_end_of_run_stats(all_enemies_hit: bool, no_frendlies_hit: bool, accuracy: float) -> void:
 	if all_enemies_hit and no_frendlies_hit:
 		_badge_earned(_badges["clean_sweep"])
 	if accuracy == 1:
@@ -58,7 +51,7 @@ func evaluate_end_of_run_stats(all_enemies_hit: bool, no_frendlies_hit, accuracy
 
 
 func get_run_badge_time() -> float:
-	var run_badge_time: float = 0
+	var run_badge_time: float = 0.0
 	for badge in _run_badges:
 		run_badge_time -= badge.time_value * _run_badges[badge]
 	

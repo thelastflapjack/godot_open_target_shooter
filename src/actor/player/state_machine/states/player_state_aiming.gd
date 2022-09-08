@@ -3,8 +3,8 @@ extends PlayerState
 
 var _strafe_dir_target: Vector2
 var _strafe_dir: Vector2
-var _strafe_dir_accel: float = 3
-var _neck_bone_number := 7
+var _strafe_dir_accel: float = 3.0
+var _neck_bone_number: int = 7
 var _neck_bone_neutral_pose: Transform
 
 ############################
@@ -22,7 +22,7 @@ func handle_input(event: InputEvent) -> void:
 func physics_update(delta: float) -> void:
 	.physics_update(delta)
 	
-	var movement_direction_xz := _get_input_movement_direction_xz()
+	var movement_direction_xz: Vector3 = _get_input_movement_direction_xz()
 	_strafe_dir = _strafe_dir.move_toward(_strafe_dir_target, _strafe_dir_accel * delta)
 	_player._anim_tree.set("parameters/aim/BlendSpace2D/blend_position", _strafe_dir)
 	_apply_xz_movement(delta, movement_direction_xz)
@@ -47,7 +47,7 @@ func physics_update(delta: float) -> void:
 	)
 
 
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	_animate()
 	_neck_bone_neutral_pose = _player.skeleton.get_bone_pose(_neck_bone_number)
 
@@ -61,7 +61,7 @@ func exit() -> void:
 ############################
 
 func _get_input_movement_direction_xz() -> Vector3:
-	var input_vector := Vector3.ZERO
+	var input_vector: Vector3 = Vector3.ZERO
 	input_vector.z = Input.get_action_strength("player_backward") - Input.get_action_strength("player_forward")
 	input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	var input_vectorm_norm: Vector3 = input_vector.normalized()
@@ -70,7 +70,7 @@ func _get_input_movement_direction_xz() -> Vector3:
 		-round(input_vectorm_norm.z)
 	)
 	
-	var direction = input_vector.normalized().rotated(
+	var direction: Vector3 = input_vector.normalized().rotated(
 			Vector3.UP, 
 			_player.camera_system.get_camera_global_transform().basis.get_euler().y
 	)
@@ -83,7 +83,7 @@ func _animate() -> void:
 
 
 func _update_state() -> void:
-	var target_state_id := name
+	var target_state_id: String = name
 	if not _player.can_aim:
 		if _get_input_movement_direction_xz() == Vector3.ZERO:
 			target_state_id = "Idle"

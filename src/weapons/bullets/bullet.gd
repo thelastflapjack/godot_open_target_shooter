@@ -18,7 +18,7 @@ var distance_vector: Vector3
 var _collider: Spatial
 
 ### Onready variables ###
-onready var _max_range_squared: int = pow(max_range, 2)
+onready var _max_range_squared: float = pow(max_range, 2)
 onready var _mesh_inst: MeshInstance = $MeshInstance
 onready var _collision_shape: CollisionShape = $CollisionShape
 onready var _particles: Particles = $Particles

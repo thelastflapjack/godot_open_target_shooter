@@ -15,10 +15,6 @@ func handle_input(event: InputEvent) -> void:
 		_handle_input_mouse_motion(event)
 
 
-func update(_delta: float) -> void:
-	pass
-
-
 func physics_update(_delta: float) -> void:
 	_camera_sys.anchor_y.rotation = lerp(
 			_camera_sys.anchor_y.rotation, _camera_sys.anchor_y_rotation_target,
@@ -27,7 +23,7 @@ func physics_update(_delta: float) -> void:
 	_follow_follow_target()
 
 
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	_camera_sys.update_camera_local_transform(
 			_anchor_offset, _camera_offset
 	)

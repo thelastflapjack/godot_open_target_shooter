@@ -56,9 +56,7 @@ func raycast_collision_point() -> Vector3:
 
 func update_camera_local_transform(anchor_offset: Vector3, camera_offset: Vector3) -> void:
 	var tween: SceneTreeTween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	tween = tween.set_ease(Tween.EASE_IN)
-	tween = tween.set_trans(Tween.TRANS_LINEAR)
-	tween = tween.set_parallel(true)
+	tween = tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR).set_parallel(true)
 	var duration: float = 0.15
 	
 	var _anchor_y_pos_tweener: PropertyTweener = tween.tween_property(

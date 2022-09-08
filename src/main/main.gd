@@ -22,7 +22,7 @@ func _ready() -> void:
 	_loader_poll_timer.wait_time = _poll_time
 	
 	#make sure root is ready to take new child
-	yield(get_tree().root,"ready")
+	yield(get_tree().root, "ready")
 	_set_current_scene(_initial_scene.instance())
 
 

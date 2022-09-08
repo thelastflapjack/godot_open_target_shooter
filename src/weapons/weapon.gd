@@ -15,14 +15,14 @@ signal reload_unload_anim_done()
 signal reload_load_anim_done()
 
 ### Enums ###
-enum SLOT_TYPE{PRIMARY, SECONDARY}
+enum SlotType{PRIMARY, SECONDARY}
 
 ### Exported variables ###
-export(SLOT_TYPE) var slot_type: int
+export(SlotType) var slot_type: int
 
 export(Texture) var icon: Texture
 export(PackedScene) var bullet_packed_scene: PackedScene
-export(float) var bullet_speed: float = 50
+export(float) var bullet_speed: float = 50.0
 export(int) var bullet_damage: int = 10
 export(int) var max_range: int = 60
 

@@ -30,7 +30,7 @@ func physics_update(delta: float) -> void:
 
 # Virtual function. Called by the state machine upon changing the active state.
 # _data is a dictionary with arbitrary data the state can use to initialize.
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	pass
 
 

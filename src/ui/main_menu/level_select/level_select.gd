@@ -2,8 +2,6 @@ extends MultiPageUIPage
 # Script controlling the level select menu screen
 
 
-### Signals ###
-
 ### Exported variables ###
 export(String) var _level_directory_path: String
 
@@ -56,9 +54,9 @@ func _on_start_level_button_pressed() -> void:
 
 
 func _update_selected_level_stats(button: LevelButton) -> void:
-	var level_name := button.get_text().to_lower().replace(" ", "_")
-	var level_time_par := SaveLoad.load_level_par_time(level_name)
-	var level_time_best := SaveLoad.load_level_best_time(level_name)
+	var level_name: String = button.get_text().to_lower().replace(" ", "_")
+	var level_time_par: float = SaveLoad.load_level_par_time(level_name)
+	var level_time_best: float = SaveLoad.load_level_best_time(level_name)
 	
 	_label_level_name.set_text(button.get_text())
 	_label_level_time_par.set_text("%5.2f" % level_time_par)
@@ -78,11 +76,11 @@ func _update_selected_level_stats(button: LevelButton) -> void:
 ############################
 func _find_level_file_names() -> PoolStringArray:
 	var result: PoolStringArray = []
-	var dir := Directory.new()
-	var err := dir.open(_level_directory_path)
+	var dir: Directory = Directory.new()
+	var err: int = dir.open(_level_directory_path)
 	if err == OK:
-		var regex := RegEx.new()
-		var match_string = "level_\\d+.tscn"
+		var regex: RegEx = RegEx.new()
+		var match_string: String = "level_\\d+.tscn"
 		err = regex.compile(match_string)
 		if err == OK:
 			# warning-ignore:return_value_discarded
@@ -103,11 +101,11 @@ func _find_level_file_names() -> PoolStringArray:
 func _add_level_buttons(level_file_names: PoolStringArray) -> void:
 	for i in range(level_file_names.size()):
 		var file_name: String = level_file_names[i]
-		var new_button = _level_button_res.instance()
+		var new_button: LevelButton = _level_button_res.instance()
 		_level_button_grid.add_child(new_button)
 		new_button.set_v_size_flags(SIZE_EXPAND_FILL)
 		new_button.set_custom_minimum_size(Vector2(200, 0))
-		var text := file_name.get_basename().capitalize()
+		var text: String = file_name.get_basename().capitalize()
 		new_button.set_text(text)
 		new_button.set_name("Button%s" % text.replace(" ", ""))
 		

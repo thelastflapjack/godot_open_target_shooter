@@ -27,7 +27,7 @@ func physics_update(delta: float) -> void:
 	)
 
 
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	_animate()
 	_player.weapons_anchor.rotation_degrees = Vector3(0, -180, 0)
 
@@ -41,7 +41,7 @@ func _animate() -> void:
 
 
 func _update_state() -> void:
-	var target_state_id := name
+	var target_state_id: String = name
 	if _get_input_movement_direction_xz() != Vector3.ZERO:
 		target_state_id = "Walking"
 	

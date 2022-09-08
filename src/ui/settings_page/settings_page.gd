@@ -25,10 +25,10 @@ onready var _option_btn_msaa: OptionButton = find_node("MSAAOptionButton")
 # Engine Callback Methods  #
 ############################
 func _ready() -> void:
-	_slider_audio_master.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Master]
-	_slider_audio_sfx.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Sfx]
-	_slider_audio_music.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Music]
-	_slider_audio_ui.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.Ui]
+	_slider_audio_master.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.MASTER]
+	_slider_audio_sfx.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.SFX]
+	_slider_audio_music.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.MUSIC]
+	_slider_audio_ui.value = UserPreferences.audio_vol[UserPreferences.AudioBuses.UI]
 	
 	_slider_mouse_sensitivity.value = UserPreferences.mouse_sensitivity
 	_check_btn_toggle_sprint.pressed = UserPreferences.toggle_sprint

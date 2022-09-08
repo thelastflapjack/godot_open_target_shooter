@@ -45,7 +45,7 @@ func get_current_state() -> State:
 	return _current_state
 
 
-func transition_to(target_state_id: String, data: Dictionary = {}) -> void:
+func transition_to(target_state_id: String, data: Dictionary={}) -> void:
 	assert(_states.has(target_state_id))
 	_current_state.disconnect("change_state_request", self, "_on_change_state_request")
 	_current_state.exit()
@@ -66,7 +66,7 @@ func return_to_initial_state() -> void:
 ############################
 # Signal Connected Methods #
 ############################
-func _on_change_state_request(state_id: String, data := {}) -> void:
+func _on_change_state_request(state_id: String, data: Dictionary={}) -> void:
 	transition_to(state_id, data)
 
 

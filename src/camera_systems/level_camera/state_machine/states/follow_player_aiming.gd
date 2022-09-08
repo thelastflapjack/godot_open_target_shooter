@@ -23,7 +23,7 @@ func physics_update(_delta: float) -> void:
 	_follow_follow_target()
 
 
-func enter(_data := {}) -> void:
+func enter(_data: Dictionary={}) -> void:
 	_camera_sys.update_camera_local_transform(
 			_anchor_offset, _camera_offset
 	)

@@ -24,27 +24,14 @@ func _on_area_entered(area: Area) -> void:
 		causer, "activated", self, 
 		"_on_overlapping_causer_activated"
 	)
-#	GenUtils.connect_signal_assert_ok(
-#		causer, "deactivated", self, 
-#		"_on_overlapping_causer_deactivated"
-#	)
 
 
 func _on_area_exited(area: Area) -> void:
 	assert(area is CameraTraumaCauser)
 	var causer: CameraTraumaCauser = area
 	causer.disconnect("activated", self, "_on_overlapping_causer_activated")
-	#causer.disconnect("deactivated", self, "_on_overlapping_causer_deactivated")
 
 
 func _on_overlapping_causer_activated(causer: CameraTraumaCauser) -> void:
 	_camera.add_trauma_causer(causer)
 
-
-#func _on_overlapping_causer_deactivated(causer: CameraTraumaCauser) -> void:
-#	_camera.remove_trauma_causer(causer)
-
-
-############################
-#      Private Methods     #
-############################

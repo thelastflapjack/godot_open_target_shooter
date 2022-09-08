@@ -99,13 +99,10 @@ func _change_current_page(new_page_name: String) -> void:
 	target_page.visible = true
 	
 	var tween: SceneTreeTween = create_tween()
-	var page_rect_pos_tweener: PropertyTweener = tween.tween_property(
+	var _page_rect_pos_tweener: PropertyTweener = tween.tween_property(
 			_page_container, "rect_position", 
 			position_change, 1
-	)
-	page_rect_pos_tweener = page_rect_pos_tweener.as_relative()
-	page_rect_pos_tweener = page_rect_pos_tweener.set_ease(Tween.EASE_IN_OUT)
-	page_rect_pos_tweener = page_rect_pos_tweener.set_trans(Tween.TRANS_QUAD)
+	).as_relative().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.play()
 	yield(tween, "finished")
 	

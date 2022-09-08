@@ -19,7 +19,7 @@ var _down_targets_friendly: Array
 # Engine Callback Methods  #
 ############################
 func _ready() -> void:
-	var i := 0
+	var i: int = 0
 	var target: PopupTarget
 	while i < get_child_count():
 		target = get_child(i)
@@ -87,7 +87,3 @@ func _on_target_hit(target: PopupTarget) -> void:
 		_down_targets_friendly.append(target)
 		emit_signal("friendly_target_hit")
 
-
-############################
-#      Private Methods     #
-############################
