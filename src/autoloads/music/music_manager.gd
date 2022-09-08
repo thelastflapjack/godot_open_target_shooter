@@ -6,7 +6,7 @@ extends Node
 
 ### Enums ###
 enum Tracks {
-	None,
+	NONE,
 	MAIN_MENU,
 	ON_RANGE,
 	OFF_RANGE,
@@ -14,7 +14,7 @@ enum Tracks {
 
 
 ### Private variables ###
-var _current_track_id: int = Tracks.None
+var _current_track_id: int = Tracks.NONE
 
 
 ### Onready variables ###
@@ -35,7 +35,7 @@ func transition_to_track(new_track_id: int, fade_time: float=1.5, transition_del
 			"MusicManager Error: Tried to transition to non-existent track."
 	)
 	
-	if _current_track_id != Tracks.None:
+	if _current_track_id != Tracks.NONE:
 		_track_fade(_current_track_id, false, fade_time)
 		if transition_delay > 0.0:
 			yield(get_tree().create_timer(transition_delay), "timeout")
