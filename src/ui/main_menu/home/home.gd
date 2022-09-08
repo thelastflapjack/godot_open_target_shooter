@@ -1,6 +1,12 @@
 extends MultiPageUIPage
 
 
+func _ready() -> void:
+	MusicManager.transition_to_track(
+			MusicManager.Tracks.MAIN_MENU, 3
+	)
+
+
 func _on_btn_level_pressed() -> void:
 	if active:
 		emit_signal("change_page_request", "LevelSelect")

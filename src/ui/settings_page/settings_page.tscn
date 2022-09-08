@@ -60,9 +60,9 @@ custom_constants/separation = 50
 alignment = 1
 
 [node name="Audio" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 136.0
+margin_top = 110.0
 margin_right = 765.0
-margin_bottom = 275.0
+margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_constants/vseparation = 20
@@ -147,7 +147,6 @@ margin_bottom = 33.0
 text = "100"
 
 [node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
-visible = false
 margin_top = 106.0
 margin_right = 200.0
 margin_bottom = 139.0
@@ -156,9 +155,9 @@ align = 2
 valign = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
-visible = false
+margin_left = 250.0
 margin_top = 106.0
-margin_right = 358.0
+margin_right = 765.0
 margin_bottom = 139.0
 size_flags_horizontal = 3
 
@@ -170,7 +169,7 @@ text = "0"
 [node name="SliderAudioMusic" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3"]
 margin_left = 25.0
 margin_top = 8.0
-margin_right = 302.0
+margin_right = 459.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -180,24 +179,24 @@ tick_count = 5
 ticks_on_borders = true
 
 [node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer3"]
-margin_left = 306.0
-margin_right = 358.0
+margin_left = 463.0
+margin_right = 515.0
 margin_bottom = 33.0
 text = "100"
 
 [node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
-margin_top = 106.0
+margin_top = 159.0
 margin_right = 200.0
-margin_bottom = 139.0
+margin_bottom = 192.0
 text = "UI"
 align = 2
 valign = 1
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio"]
 margin_left = 250.0
-margin_top = 106.0
+margin_top = 159.0
 margin_right = 765.0
-margin_bottom = 139.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/Audio/HBoxContainer4"]
@@ -224,14 +223,14 @@ margin_bottom = 33.0
 text = "100"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 325.0
+margin_top = 352.0
 margin_right = 765.0
-margin_bottom = 329.0
+margin_bottom = 356.0
 
 [node name="Gameplay" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 379.0
+margin_top = 406.0
 margin_right = 765.0
-margin_bottom = 554.0
+margin_bottom = 581.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_constants/vseparation = 20
@@ -311,15 +310,15 @@ margin_bottom = 175.0
 size_flags_horizontal = 0
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 604.0
+margin_top = 631.0
 margin_right = 765.0
-margin_bottom = 608.0
+margin_bottom = 635.0
 
 [node name="Video" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 margin_left = 161.0
-margin_top = 658.0
+margin_top = 685.0
 margin_right = 603.0
-margin_bottom = 765.0
+margin_bottom = 792.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_constants/vseparation = 20

@@ -41,6 +41,9 @@ onready var _audio_player_run_end: AudioStreamPlayer = $AudioStreamRunEnd
 # Engine Callback Methods  #
 ############################
 func _ready() -> void:
+	MusicManager.transition_to_track(
+			MusicManager.Tracks.OFF_RANGE, 3
+	)
 	_player.camera_system = _camera_system
 	
 	_par_time = SaveLoad.load_level_par_time(_level_name)
@@ -160,6 +163,9 @@ func _connect_signals() -> void:
 
 
 func _start_run() -> void:
+	MusicManager.transition_to_track(
+			MusicManager.Tracks.ON_RANGE, 1
+	)
 	_audio_player_run_start.play()
 	_is_player_on_range = true
 	_run_time_raw = 0
@@ -188,6 +194,9 @@ func _update_and_show_run_summary(missed_enemy_penalty_time_total: float, hit_fr
 
 
 func _finish_run() -> void:
+	MusicManager.transition_to_track(
+			MusicManager.Tracks.OFF_RANGE, 3
+	)
 	_audio_player_run_end.play()
 	_is_player_on_range = false
 	

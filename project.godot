@@ -182,6 +182,7 @@ default_bus_layout="res://audio_bus_layout.tres"
 
 UserPreferences="*res://src/autoloads/user_preferences.gd"
 Groups="*res://src/autoloads/groups.gd"
+MusicManager="*res://src/autoloads/music/music_manager.tscn"
 
 [display]
 
