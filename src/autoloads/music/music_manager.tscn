@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/autoloads/music/music_manager.gd" type="Script" id=1]
-[ext_resource path="res://raw_assets/music/menu/Late Night Radio.mp3" type="AudioStream" id=2]
-[ext_resource path="res://raw_assets/music/off_range/Electro Sketch.mp3" type="AudioStream" id=3]
-[ext_resource path="res://raw_assets/music/on_range/Cybermatic pulse (LOOP).mp3" type="AudioStream" id=4]
+[ext_resource path="res://raw_assets/music/GameOutside.wav" type="AudioStream" id=2]
+[ext_resource path="res://raw_assets/music/Menu.wav" type="AudioStream" id=3]
+[ext_resource path="res://raw_assets/music/GameInside.wav" type="AudioStream" id=4]
 
 [node name="MusicManager" type="Node"]
 pause_mode = 2
@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 
 [node name="TrackMainMenu" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = -80.0
 bus = "Music"
 
@@ -23,6 +23,6 @@ bus = "Music"
 
 [node name="TrackOffRange" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 volume_db = -80.0
 bus = "Music"

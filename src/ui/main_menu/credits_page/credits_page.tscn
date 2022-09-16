@@ -67,7 +67,23 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="GithubCredits" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 1124.0
+margin_bottom = 105.0
+text = "Github contributors:
+#1 | thelastflapjack | 21,837++, 396--
+#2 | xX-Void-Xx | 106++, 156--"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 125.0
+margin_right = 1124.0
+margin_bottom = 129.0
+
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 149.0
 margin_right = 1124.0
 margin_bottom = 769.0
 size_flags_vertical = 3
@@ -75,14 +91,25 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
 margin_right = 1112.0
-margin_bottom = 1397.0
+margin_bottom = 1433.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 
-[node name="LabelCredit1" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="LabelCredit5" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 margin_right = 1112.0
-margin_bottom = 141.0
+margin_bottom = 105.0
+text = "Music
+By: xX-Void-Xx
+License: CC BY 4.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LabelCredit1" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 1112.0
+margin_bottom = 271.0
 text = "Font: Orbitron
 By: Matt McInerney
 Avaliable at: https://fonts.google.com/specimen/Orbitron
@@ -92,9 +119,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 166.0
+margin_top = 296.0
 margin_right = 1112.0
-margin_bottom = 307.0
+margin_bottom = 437.0
 text = "Interface Sounds
 By: Kenney
 Avaliable at: https://www.kenney.nl/assets/interface-sounds
@@ -104,9 +131,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 332.0
+margin_top = 462.0
 margin_right = 1112.0
-margin_bottom = 473.0
+margin_bottom = 603.0
 text = "Footstep sound effect
 By: ruberduck
 Avaliable at: https://opengameart.org/content/100-cc0-sfx-2
@@ -116,9 +143,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 498.0
+margin_top = 628.0
 margin_right = 1112.0
-margin_bottom = 639.0
+margin_bottom = 769.0
 text = "Gunshot sound effect
 By: ShawnyBoy
 Avaliable at: https://freesound.org/people/ShawnyBoy/sounds/166191
@@ -128,9 +155,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit8" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 664.0
+margin_top = 794.0
 margin_right = 1112.0
-margin_bottom = 805.0
+margin_bottom = 935.0
 text = "Pistol reload sounds
 By: oneshotofficial
 Avaliable at: https://freesound.org/people/oneshotofficial/sounds/616758/
@@ -140,9 +167,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit9" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 830.0
+margin_top = 960.0
 margin_right = 1112.0
-margin_bottom = 971.0
+margin_bottom = 1101.0
 text = "Rifle reload sounds
 By: oneshotofficial
 Avaliable at: https://freesound.org/people/oneshotofficial/sounds/616757/
@@ -152,9 +179,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit10" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 996.0
+margin_top = 1126.0
 margin_right = 1112.0
-margin_bottom = 1137.0
+margin_bottom = 1267.0
 text = "Enemy target hit sound
 By: cupido-1
 Avaliable at: https://freesound.org/people/cupido-1/sounds/560724/
@@ -164,23 +191,13 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit11" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 1162.0
+margin_top = 1292.0
 margin_right = 1112.0
-margin_bottom = 1303.0
+margin_bottom = 1433.0
 text = "Friendly target hit sound
 By: RICHERlandTV
 Avaliable at: https://freesound.org/people/RICHERlandTV/sounds/216090/
 License: CC BY 3.0"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="LabelCredit13" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 1328.0
-margin_right = 1112.0
-margin_bottom = 1397.0
-text = "Everything else
-By: thelastflapjack"
 align = 1
 valign = 1
 autowrap = true
