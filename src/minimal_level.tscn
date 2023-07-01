@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/level_components/level_sub_managers/bullet_manager.gd" type="Script" id=1]
+[ext_resource path="res://src/actor/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/camera_systems/level_camera/level_cam_sys.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/minimal_level.gd" type="Script" id=4]
+[ext_resource path="res://world_env.tres" type="Environment" id=5]
+[ext_resource path="res://src/level_components/targets/popup_target/popup_target.tscn" type="PackedScene" id=6]
+[ext_resource path="res://raw_assets/01_dark_grey.png" type="Texture" id=7]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 7 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[node name="MinimalLevel" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 0.888476, 0.255723, -0.381072, 0.0321007, 0.793698, 0.607464, 0.457799, -0.55195, 0.696973, 0, 11, 0 )
+light_energy = 0.9
+shadow_enabled = true
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( -0.652816, 0.5138, -0.556633, 0.377354, 0.857723, 0.349162, 0.656837, 0.0178907, -0.75382, 0, 11, 0 )
+light_color = Color( 1, 0.956863, 0.866667, 1 )
+light_energy = 0.4
+
+[node name="LevelCameraSystem" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+collision_mask = 21
+
+[node name="Floor" type="CSGCombiner" parent="."]
+material_override = SubResource( 1 )
+use_collision = true
+collision_mask = 11
+
+[node name="CSGBox" type="CSGBox" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+width = 32.0
+depth = 32.0
+
+[node name="BulletManager" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Targets" type="Node" parent="."]
+
+[node name="PopupTarget1" parent="Targets" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 9 )
+
+[node name="PopupTarget2" parent="Targets" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12 )
+
+[node name="PopupTarget3" parent="Targets" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 11 )
+
+[node name="PopupTarget5" parent="Targets" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 12, 0, -13 )
+_move_distance = 5.0
+
+[node name="PopupTarget4" parent="Targets" instance=ExtResource( 6 )]
+transform = Transform( -0.0261944, 0, -0.999657, 0, 1, 0, 0.999657, 0, -0.0261944, -11, 0, -4 )
+is_enemy = false

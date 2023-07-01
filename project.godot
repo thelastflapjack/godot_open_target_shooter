@@ -9,16 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "Badge",
-"language": "GDScript",
-"path": "res://src/badges/badge.gd"
-}, {
-"base": "Node",
-"class": "BadgeTracker",
-"language": "GDScript",
-"path": "res://src/level_components/level_sub_managers/badge_tracker.gd"
-}, {
 "base": "KinematicBody",
 "class": "Bullet",
 "language": "GDScript",
@@ -44,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/global_utilities/general_utilities.gd"
 }, {
-"base": "Button",
-"class": "LevelButton",
-"language": "GDScript",
-"path": "res://src/ui/main_menu/level_select/level_button/level_button.gd"
-}, {
 "base": "Spatial",
 "class": "LevelCameraSystem",
 "language": "GDScript",
@@ -58,26 +43,6 @@ _global_script_classes=[ {
 "class": "LevelCameraSystemState",
 "language": "GDScript",
 "path": "res://src/camera_systems/level_camera/state_machine/level_cam_sys_state.gd"
-}, {
-"base": "Spatial",
-"class": "LevelManager",
-"language": "GDScript",
-"path": "res://src/level_components/level.gd"
-}, {
-"base": "CanvasLayer",
-"class": "LevelUI",
-"language": "GDScript",
-"path": "res://src/ui/level_ui/level_ui.gd"
-}, {
-"base": "Control",
-"class": "MultiPageUIMagager",
-"language": "GDScript",
-"path": "res://src/ui/multi_page_ui/manager.gd"
-}, {
-"base": "Control",
-"class": "MultiPageUIPage",
-"language": "GDScript",
-"path": "res://src/ui/multi_page_ui/page.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -99,16 +64,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/level_components/targets/popup_target/popup_target.gd"
 }, {
-"base": "VBoxContainer",
-"class": "RunSummaryBadgeIcon",
-"language": "GDScript",
-"path": "res://src/ui/run_summary_page/badge_icon/run_summary_badge_icon.gd"
-}, {
-"base": "Reference",
-"class": "SaveLoad",
-"language": "GDScript",
-"path": "res://src/global_utilities/saveload.gd"
-}, {
 "base": "ClippedCamera",
 "class": "ShakeableClippedCamera",
 "language": "GDScript",
@@ -129,49 +84,34 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/level_components/targets/target.gd"
 }, {
-"base": "Node",
-"class": "TargetManager",
-"language": "GDScript",
-"path": "res://src/level_components/level_sub_managers/target_manager.gd"
-}, {
 "base": "Spatial",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://src/weapons/weapon.gd"
 } ]
 _global_script_class_icons={
-"Badge": "",
-"BadgeTracker": "",
 "Bullet": "",
 "BulletManager": "",
 "CameraTraumaCauser": "",
 "CameraTraumaDetector": "",
 "GenUtils": "",
-"LevelButton": "",
 "LevelCameraSystem": "",
 "LevelCameraSystemState": "",
-"LevelManager": "",
-"LevelUI": "",
-"MultiPageUIMagager": "",
-"MultiPageUIPage": "",
 "Player": "",
 "PlayerHUD": "",
 "PlayerState": "",
 "PopupTarget": "",
-"RunSummaryBadgeIcon": "",
-"SaveLoad": "",
 "ShakeableClippedCamera": "",
 "State": "",
 "StateMachine": "",
 "Target": "",
-"TargetManager": "",
 "Weapon": ""
 }
 
 [application]
 
 config/name="open_target_shooter"
-run/main_scene="res://src/main/main.tscn"
+run/main_scene="res://src/minimal_level.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -181,8 +121,6 @@ default_bus_layout="res://audio_bus_layout.tres"
 [autoload]
 
 UserPreferences="*res://src/autoloads/user_preferences.gd"
-Groups="*res://src/autoloads/groups.gd"
-MusicManager="*res://src/autoloads/music/music_manager.tscn"
 
 [display]
 

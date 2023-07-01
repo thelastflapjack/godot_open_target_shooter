@@ -18,8 +18,6 @@ var _health: int = 1
 ############################
 # Engine Callback Methods  #
 ############################
-func _ready() -> void:
-	add_to_group(Groups.HURTABLE)
 
 
 ############################

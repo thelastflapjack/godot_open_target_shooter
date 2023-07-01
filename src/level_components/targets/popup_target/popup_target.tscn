@@ -125,7 +125,7 @@ material/0 = ExtResource( 2 )
 transform = Transform( 1, 1.67748e-15, 2.94209e-15, 1.38431e-15, 0.999999, 2.00234e-07, 2.83107e-15, -2.00234e-07, 0.999999, 1.02446e-09, 0.645279, 0.0122499 )
 bone_name = "target"
 
-[node name="Target" type="StaticBody" parent="popup_target/popup_target_rig/Skeleton/BoneAttachment"]
+[node name="Target" type="StaticBody" parent="popup_target/popup_target_rig/Skeleton/BoneAttachment" groups=["hurtable"]]
 transform = Transform( 1.1, 1.64296e-15, 3.60267e-15, 1.75554e-15, 1.1, 8.09321e-08, 2.7478e-15, -8.09321e-08, 1.1, 2.33147e-15, -5.96046e-08, -3.72529e-09 )
 collision_layer = 4
 collision_mask = 8

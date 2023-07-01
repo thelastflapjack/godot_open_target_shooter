@@ -60,7 +60,7 @@ func _on_bullet_collided(bullet: Bullet, collider: Spatial) -> void:
 			if bullet_distance >= _longshot_distance:
 				emit_signal("longshot_bullet")
 	
-	if collider.is_in_group(Groups.HURTABLE):
+	if collider.is_in_group("hurtable"):
 		collider.hurt(bullet.damage)
 	bullet.destroy()
 
